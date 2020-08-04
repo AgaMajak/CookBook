@@ -15,11 +15,4 @@ public class IngredientController {
     public IngredientController(IngredientRepository ingredientRepository) {
         this.ingredientRepository = ingredientRepository;
     }
-
-
-//    @GetMapping("/")
-//    @ResponseBody
-//    public List<Ingredient> home() {
-//        return ingredientRepository.findAll();
-//    }
 }

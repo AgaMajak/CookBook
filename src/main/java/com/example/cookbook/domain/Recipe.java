@@ -20,7 +20,7 @@ public class Recipe {
 
     private String name;
 
-    @Column(columnDefinition = "VARCHAR(100)")
+    @Column(columnDefinition = "VARCHAR(150)")
     private String imgUrl;
 
     @Enumerated(value = EnumType.STRING)
@@ -29,12 +29,8 @@ public class Recipe {
     @Column(columnDefinition = "VARCHAR(10000)")
     private String description;
 
-    @OneToMany(mappedBy = "recipe")
+    private int likeCounter;
+
+    @OneToMany(mappedBy = "recipe", cascade = CascadeType.REMOVE)
     private List<Ingredient> ingredients = new ArrayList<>();
-
-    public void addIngredient(Ingredient ingredient){
-        ingredients.add(ingredient);
-        ingredient.setRecipe(this);
-    }
-
 }

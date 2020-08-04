@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ksiązka kucharska</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/style.css"/>
+</head>
+<body>
+<div style="margin-left: 200px; margin-right: 200px;">
+    <div class="header">
+        <h1>Książka kucharska</h1>
+    </div>
+    <br/>
+    <div>
+        <a href="/?sortuj=sorted">Pokaż kolejno według polubień</a>
+    </div>
+    <br/>
+    <div>
+        Kategorie przepisów:
+        <a href="/">Wszystkie przepisy</a>
+        <a href="/kategoria?category=STARTER">Przystawki</a>
+        <a href="/kategoria?category=SOUP">Zupy</a>
+        <a href="/kategoria?category=MAIN">Dania główne</a>
+        <a href="/kategoria?category=DESSERT">Desery</a>
+        <a href="/kategoria?category=DRINK">Napoje</a>
+        <a href="/kategoria?category=BAKING">Wypieki</a>
+    </div>
+    <br/>
+    <div>
+        <a href="/dodaj">Dodaj przepis</a>
+    </div>
+    </br>
+    <div class="content">
+        <h1>Przepisy:</h1>
+        <a th:href="@{'/przepis?nazwa=' + ${recipe.name}}" class="recipe" th:each="recipe: ${recipes}">
+            <img th:src="${recipe.imgUrl}" style="width: 300px; min-width: 300px"/></br>
+            <div>
+                <h2 th:text="${recipe.name}"></h2>
+            </div>
+            </br>
+        </a>
+    </div>
+</div>
+</body>
+</html>

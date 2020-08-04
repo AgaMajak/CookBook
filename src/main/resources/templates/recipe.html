@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Przepis</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="/style.css"/>
+</head>
+<body>
+<div style="margin-left: 200px; margin-right: 200px;">
+    <div class="header">
+        <h1>Przepis</h1>
+    </div>
+    <div class="content">
+        <a href="/">Powrót do strony głównej</a>
+        <h2 th:text="${recipe.name}"></h2>
+        <img th:src="${recipe.imgUrl}" style="width: 300px; min-width: 300px"/>
+        <h3>Składniki: </h3>
+        <ul>
+            <li th:each="ingredient: ${recipe.ingredients}" th:text="${ingredient}">
+        </ul>
+        <h3>Przygotowanie: </h3>
+        <p th:text="${recipe.description}"></p>
+        <br/>
+        <a th:href="@{'/like?nazwa='+ ${recipe.name}}">Lubię to!</a>
+        <p th:text="|Ilość polubień: ${recipe.likeCounter}|"></p>
+        <div>
+            <a th:href="@{'/usuń?nazwa=' + ${recipe.name}}">Usuń przepis</a></br>
+            <a th:href="@{'/edytuj?nazwa=' + ${recipe.name}}">Edytuj przepis</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
