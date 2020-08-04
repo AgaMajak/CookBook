@@ -79,8 +79,8 @@ public class RecipeController {
 
     @GetMapping("/dodaj")
     public String getRecipeInfo(Model model) {
-        model.addAttribute("animal", new Recipe());
-        return "addOrEdit";
+        model.addAttribute("recipe", new Recipe());
+        return "add";
     }
 
     @PostMapping("/dodaj")
