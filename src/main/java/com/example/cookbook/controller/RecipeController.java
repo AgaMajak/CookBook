@@ -93,8 +93,7 @@ public class RecipeController {
     public String editRecipe(Model model, @RequestParam(name = "nazwa") String name) {
         Recipe recipe = recipeRepository.findByName(name);
         model.addAttribute("recipe", recipe);
-        model.addAttribute("mode", "edit");
-        return "addOrEdit";
+        return "edit";
     }
 
     @PostMapping("/edytuj")

@@ -10,8 +10,9 @@
 
 </head>
 <body>
-<form method="post" th:action="${mode == 'edit' ? '/edytuj' : '/dodaj'}" th:object="${recipe}">
+<form method="post" th:action="@{/edytuj}" th:object="${recipe}">
     <div>
+        <h2>Zmień odpowiednie dane i kliknij "Zmień", aby edytować przepis</h2>
         <input type="text" placeholder="Podaj nazwę..." th:field="*{name}"><br/>
         <span>Obrazek: </span> <input type="text" placeholder="Podaj url obrazka..." th:field="*{imgUrl}"><br/>
         <span>Opis: </span> <textarea placeholder="Podaj opis przygotowania"
@@ -22,7 +23,7 @@
                     th:value="${category}" th:text="${category.name}">
             </option>
         </select>
-        <input type="submit" value="Dodaj"/>
+        <input type="submit" value="Zmień"/>
     </div>
 </form>
 </body>

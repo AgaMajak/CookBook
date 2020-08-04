@@ -12,6 +12,7 @@
 <body>
 <form method="post" th:action="@{/dodaj}" th:object="${recipe}">
     <div>
+        <h2>Wypełnij dane i kliknij "Dodaj", aby dodać przepis</h2>
         <input type="text" placeholder="Podaj nazwę..." th:field="*{name}"><br/>
         <span>Obrazek: </span> <input type="text" placeholder="Podaj url obrazka..." th:field="*{imgUrl}"><br/>
         <span>Opis: </span> <textarea placeholder="Podaj opis przygotowania"
