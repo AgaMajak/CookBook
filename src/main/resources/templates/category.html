@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Kategoria</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/style.css"/>
+</head>
+<body>
+<div style="margin-left: 200px; margin-right: 200px;">
+    <div>
+        <text th:each="categoryTemp: ${category.values()}" th:if="${categoryTemp == category}">
+            <h2 th:text="${categoryTemp.getName()}"></h2>
+            <div class="content">
+                <a href="/">Powrót do strony głównej</a>
+                <br/>
+            </div>
+            <img th:src="${categoryTemp.getImgUrl()}" style="width: 600px; min-width: 450px"/>
+            <h3 th:text="${categoryTemp.getDescription()}"></h3>
+        </text>
+    </div>
+    </br>
+    <div class="content">
+        <h4>Dostępne przepisy:</h4>
+        <a th:href="@{'/przepis?nazwa=' + ${recipe.name}}" class="recipe" th:each="recipe: ${recipes}">
+            <div>
+                <ul>
+                    <li th:text="${recipe.name}"></li>
+                </ul>
+            </div>
+        </a>
+    </div>
+</div>
+</body>
+</html>

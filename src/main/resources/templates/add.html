@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj przepis</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="/style.css"/>
+
+</head>
+<body>
+<form method="post" th:action="@{/dodaj}" th:object="${recipe}">
+    <div>
+        <h2>Wypełnij dane i kliknij "Dodaj", aby dodać przepis</h2>
+        <input type="text" placeholder="Podaj nazwę..." th:field="*{name}"><br/>
+        <span>Obrazek: </span> <input type="text" placeholder="Podaj url obrazka..." th:field="*{imgUrl}"><br/>
+        <span>Opis: </span> <textarea placeholder="Podaj opis przygotowania"
+                                      th:field="*{description}"></textarea><br/>
+
+        <select th:field="*{category}">
+            <option th:each="category : ${T(com.example.cookbook.domain.Category).values()}"
+                    th:value="${category}" th:text="${category.name}">
+            </option>
+        </select>
+        <input type="submit" value="Dodaj"/>
+    </div>
+</form>
+</body>
+</html>
+</html>
